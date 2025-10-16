@@ -12,7 +12,10 @@ ENV \
 	PGID=0 \
 	X_AUTHELIA_CONFIG="/config/configuration.yml"
 
-COPY --link authelia-linux-amd64/authelia LICENSE entrypoint.sh healthcheck.sh ./
+ARG TARGETOS
+ARG TARGETARCH
+
+COPY --link authelia-${TARGETOS}-${TARGETARCH}/authelia LICENSE entrypoint.sh healthcheck.sh ./
 
 COPY --link --chmod=666 .healthcheck.env ./
 
