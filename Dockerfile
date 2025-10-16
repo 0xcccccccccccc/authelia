@@ -1,8 +1,13 @@
 # ===================================
 # ===== Authelia official image =====
 # ===================================
+ARG TAG
+ARG SHA
 
-FROM authelia/base:BK407@sha256:ce0ed2235ca29b748bb086db7b39429b0236da7b488472f52bbfc6b0c2bcb88a
+FROM authelia/base:${TAG}@sha256:${SHA}
+
+ARG TARGETOS
+ARG TARGETARCH
 
 WORKDIR /app
 
@@ -11,9 +16,6 @@ ENV \
 	PUID=0 \
 	PGID=0 \
 	X_AUTHELIA_CONFIG="/config/configuration.yml"
-
-ARG TARGETOS
-ARG TARGETARCH
 
 COPY --link authelia-${TARGETOS}-${TARGETARCH}/authelia LICENSE entrypoint.sh healthcheck.sh ./
 
