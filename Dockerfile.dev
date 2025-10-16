@@ -7,6 +7,8 @@ WORKDIR /node/src/app
 
 COPY --link web ./
 
+RUN apk add --no-cache git
+
 # Install the dependencies and build
 RUN \
 	yarn global add pnpm && \
