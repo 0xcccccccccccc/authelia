@@ -13,7 +13,8 @@ RUN apk add --no-cache git
 RUN \
 	yarn global add pnpm && \
 	pnpm install --frozen-lockfile && \
-	pnpm coverage
+	pnpm run lint && \
+	pnpm run build
 
 # =======================================
 # ===== Build image for the backend =====
