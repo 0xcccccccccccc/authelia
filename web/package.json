@@ -65,7 +65,6 @@
     "zxcvbn": "4.4.2"
   },
   "scripts": {
-    "prepare": "lefthook install",
     "start": "vite --host",
     "build": "vite build",
     "coverage": "VITE_COVERAGE=true vite build",
