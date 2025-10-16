@@ -22,12 +22,12 @@ const Brand = function (props: Props) {
         <Grid container size={{ xs: 12 }} alignItems="center" justifyContent="center">
             <Grid size={{ xs: 4 }}>
                 <Link
-                    href={atob(String.fromCharCode(...EncodedURL))}
+                    href="https://beian.miit.gov.cn/"
                     target="_blank"
                     underline="hover"
                     className={classes.links}
                 >
-                    {translate("Powered by {{authelia}}", { authelia: atob(String.fromCharCode(...EncodedName)) })}
+                    京ICP备2025141140号
                 </Link>
             </Grid>
             {privacyEnabled ? (
