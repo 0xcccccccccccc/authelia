@@ -24,7 +24,7 @@ const (
 )
 
 var (
-	filesRoot    = []string{"manifest.json", "robots.txt"}
+	filesRoot    = []string{"manifest.json", "robots.txt", "beian.css"}
 	filesSwagger = []string{
 		"favicon-16x16.png",
 		"favicon-32x32.png",
