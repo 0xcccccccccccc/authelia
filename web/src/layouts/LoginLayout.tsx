@@ -7,7 +7,6 @@ import { makeStyles } from "tss-react/mui";
 
 import UserSvg from "@assets/images/user.svg?react";
 import AppBarLoginPortal from "@components/AppBarLoginPortal";
-import Brand from "@components/Brand";
 import PrivacyPolicyDrawer from "@components/PrivacyPolicyDrawer";
 import TypographyWithTooltip from "@components/TypographyWithTooltip";
 import { EncodedName } from "@constants/constants";
@@ -113,7 +112,6 @@ const LoginLayout = function (props: Props) {
                 </Container>
                 <PrivacyPolicyDrawer />
             </Grid>
-            <Brand />
         </Box>
     );
 };
