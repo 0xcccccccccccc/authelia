@@ -26,6 +26,8 @@ import { SecondFactorMethod } from "@models/Methods";
 import { checkSafeRedirection } from "@services/SafeRedirection";
 import { AuthenticationLevel } from "@services/State";
 import LoadingPage from "@views/LoadingPage/LoadingPage";
+import Brand from "@components/Brand";
+
 
 const AuthenticatedView = lazy(() => import("@views/LoginPortal/AuthenticatedView/AuthenticatedView"));
 const FirstFactorForm = lazy(() => import("@views/LoginPortal/FirstFactor/FirstFactorForm"));
@@ -184,43 +186,46 @@ const LoginPortal = function (props: Props) {
         location.pathname === IndexRoute;
 
     return (
-        <Routes>
-            <Route
-                path={IndexRoute}
-                element={
-                    <ComponentOrLoading ready={firstFactorReady}>
-                        <FirstFactorForm
-                            disabled={firstFactorDisabled}
-                            passkeyLogin={props.passkeyLogin}
-                            rememberMe={props.rememberMe}
-                            resetPassword={props.resetPassword}
-                            resetPasswordCustomURL={props.resetPasswordCustomURL}
-                            onAuthenticationStart={() => setFirstFactorDisabled(true)}
-                            onAuthenticationStop={() => setFirstFactorDisabled(false)}
-                            onAuthenticationSuccess={handleAuthSuccess}
-                            onChannelStateChange={handleChannelStateChange}
-                        />
-                    </ComponentOrLoading>
-                }
-            />
-            <Route
-                path={`${SecondFactorRoute}/*`}
-                element={
-                    state && userInfo && configuration ? (
-                        <SecondFactorForm
-                            authenticationLevel={state.authentication_level}
-                            factorKnowledge={state.factor_knowledge}
-                            userInfo={userInfo}
-                            configuration={configuration}
-                            duoSelfEnrollment={props.duoSelfEnrollment}
-                            onMethodChanged={() => fetchUserInfo()}
-                            onAuthenticationSuccess={handleAuthSuccess}
-                        />
-                    ) : null
-                }
-            />
-            <Route path={AuthenticatedRoute} element={userInfo ? <AuthenticatedView userInfo={userInfo} /> : null} />
-        </Routes>
+        <div>
+            <Routes>
+                <Route
+                    path={IndexRoute}
+                    element={
+                        <ComponentOrLoading ready={firstFactorReady}>
+                            <FirstFactorForm
+                                disabled={firstFactorDisabled}
+                                passkeyLogin={props.passkeyLogin}
+                                rememberMe={props.rememberMe}
+                                resetPassword={props.resetPassword}
+                                resetPasswordCustomURL={props.resetPasswordCustomURL}
+                                onAuthenticationStart={() => setFirstFactorDisabled(true)}
+                                onAuthenticationStop={() => setFirstFactorDisabled(false)}
+                                onAuthenticationSuccess={handleAuthSuccess}
+                                onChannelStateChange={handleChannelStateChange}
+                            />
+                        </ComponentOrLoading>
+                    }
+                />
+                <Route
+                    path={`${SecondFactorRoute}/*`}
+                    element={
+                        state && userInfo && configuration ? (
+                            <SecondFactorForm
+                                authenticationLevel={state.authentication_level}
+                                factorKnowledge={state.factor_knowledge}
+                                userInfo={userInfo}
+                                configuration={configuration}
+                                duoSelfEnrollment={props.duoSelfEnrollment}
+                                onMethodChanged={() => fetchUserInfo()}
+                                onAuthenticationSuccess={handleAuthSuccess}
+                            />
+                        ) : null
+                    }
+                />
+                <Route path={AuthenticatedRoute} element={userInfo ? <AuthenticatedView userInfo={userInfo} /> : null} />
+            </Routes>
+            <Brand />
+        </div>
     );
 };
 
