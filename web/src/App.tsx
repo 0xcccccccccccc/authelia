@@ -31,6 +31,8 @@ import {
 } from "@utils/Configuration";
 import LoadingPage from "@views/LoadingPage/LoadingPage";
 import LoginPortal from "@views/LoginPortal/LoginPortal";
+import Brand from "@components/Brand";
+
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -83,6 +85,7 @@ function App() {
                     </NotificationsContext.Provider>
                 </Suspense>
             </ThemeContextProvider>
+            <Brand />
         </LanguageContextProvider>
     );
 }

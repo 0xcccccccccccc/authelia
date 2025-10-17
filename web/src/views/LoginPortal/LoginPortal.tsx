@@ -26,7 +26,6 @@ import { SecondFactorMethod } from "@models/Methods";
 import { checkSafeRedirection } from "@services/SafeRedirection";
 import { AuthenticationLevel } from "@services/State";
 import LoadingPage from "@views/LoadingPage/LoadingPage";
-import Brand from "@components/Brand";
 
 
 const AuthenticatedView = lazy(() => import("@views/LoginPortal/AuthenticatedView/AuthenticatedView"));
@@ -224,7 +223,6 @@ const LoginPortal = function (props: Props) {
                 />
                 <Route path={AuthenticatedRoute} element={userInfo ? <AuthenticatedView userInfo={userInfo} /> : null} />
             </Routes>
-            <Brand />
         </div>
     );
 };
