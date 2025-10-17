@@ -109,11 +109,11 @@ const LoginLayout = function (props: Props) {
                         <Grid size={{ xs: 12 }} className={classes.body}>
                             {props.children}
                         </Grid>
-                        <Brand />
                     </Grid>
                 </Container>
                 <PrivacyPolicyDrawer />
             </Grid>
+            <Brand />
         </Box>
     );
 };
