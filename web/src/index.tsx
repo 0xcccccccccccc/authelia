@@ -7,7 +7,6 @@ import { TssCacheProvider } from "tss-react";
 
 import "@root/index.css";
 import App from "@root/App";
-import Brand from "@components/Brand";
 
 import "@i18n/index";
 
@@ -28,7 +27,6 @@ createRoot(document.getElementById("root")!).render(
     <CacheProvider value={muiCache}>
         <TssCacheProvider value={tssCache}>
             <App />
-            <Brand />
         </TssCacheProvider>
     </CacheProvider>,
 );
